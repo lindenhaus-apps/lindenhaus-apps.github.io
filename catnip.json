@@ -1,0 +1,7 @@
+{
+ "version": 1,
+ "updated": "2026-11-06",
+ "note": "Fresh catnip: daily list updates for Lindenhaus Player. All parts optional; see app/src/main/java/de/lindenhausapps/player/data/Catnip.kt.",
+ "freetv": {"add": [], "remove": []},
+ "youtube": {}
+}

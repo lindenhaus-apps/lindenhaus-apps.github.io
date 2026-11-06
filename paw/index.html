@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Pawprint · Lindenhaus Player</title>
+<meta name="description" content="A tip from a friend, sent with Lindenhaus Player.">
+<!--
+  Static landing page for pawprint links. No server logic, no cookies, no trackers, no external fonts.
+  The tip itself sits in the part of the address after "#", which browsers never send to any server;
+  it is decoded right here in the browser. Only the optional poster is loaded from Wikipedia.
+-->
+<style>
+  :root {
+    --bg: #0E1116; --surface: #161B22; --high: #1F2630; --text: #E8EEF2; --dim: #9AA6B2;
+    --accent: #2FB6A3; --accent-dim: #1C6E63; --cat: #F29B38;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) { --bg: #F4F1EA; --surface: #FFFFFF; --high: #EFEAE0; --text: #1B2127; --dim: #5B6670; --accent: #138A7A; --accent-dim: #CFEDE8; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); }
+  body { font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; min-height: 100vh; display: flex; justify-content: center; padding: 24px 16px 40px; }
+  main { width: 100%; max-width: 440px; }
+  .card { background: var(--surface); border-radius: 22px; padding: 22px 20px 20px; box-shadow: 0 10px 40px rgba(0,0,0,.25); }
+  .cat { display: block; width: 132px; height: auto; margin: -6px auto 6px; }
+  .poster { display: none; width: 62%; margin: 4px auto 14px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+  .poster.on { display: block; }
+  h1 { font-size: 1.32rem; line-height: 1.3; margin: 6px 0 8px; text-align: center; }
+  .note { font-style: italic; text-align: center; color: var(--text); margin: 6px 0 4px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .spoiler { display: block; margin: 8px auto; border: 1px dashed var(--dim); background: transparent; color: var(--dim); border-radius: 12px; padding: 8px 12px; font: inherit; cursor: pointer; }
+  .list { list-style: none; padding: 0; margin: 10px 0 0; }
+  .list li { background: var(--high); border-radius: 10px; padding: 8px 12px; margin: 6px 0; overflow-wrap: anywhere; }
+  .meta { text-align: center; color: var(--dim); font-size: .85rem; margin: 2px 0 0; }
+  .actions { display: grid; gap: 10px; margin-top: 20px; }
+  .btn { display: block; text-align: center; text-decoration: none; font-weight: 600; border-radius: 999px; padding: 13px 18px; color: var(--text); background: var(--high); }
+  .btn.primary { background: var(--accent); color: #00201C; }
+  .hint { color: var(--dim); font-size: .85rem; text-align: center; margin: 14px 4px 0; }
+  .empty { text-align: center; color: var(--dim); }
+  footer { color: var(--dim); font-size: .78rem; text-align: center; margin-top: 18px; }
+  footer a { color: var(--dim); }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <!-- An original comic cat peeking out of a cardboard box -->
+    <svg class="cat" viewBox="0 0 200 150" aria-hidden="true">
+      <path d="M58 52 L66 18 L86 44 Z" fill="var(--cat)"/>
+      <path d="M142 52 L134 18 L114 44 Z" fill="var(--cat)"/>
+      <ellipse cx="100" cy="66" rx="50" ry="40" fill="var(--cat)"/>
+      <path d="M64 26 L70 46 L80 42 Z M136 26 L130 46 L120 42 Z" fill="#F7C38A"/>
+      <ellipse cx="82" cy="64" rx="7" ry="9" fill="#1B2127"><animate attributeName="ry" values="9;9;1;9;9" keyTimes="0;.46;.5;.54;1" dur="4s" repeatCount="indefinite"/></ellipse>
+      <ellipse cx="118" cy="64" rx="7" ry="9" fill="#1B2127"><animate attributeName="ry" values="9;9;1;9;9" keyTimes="0;.46;.5;.54;1" dur="4s" repeatCount="indefinite"/></ellipse>
+      <path d="M95 78 L105 78 L100 84 Z" fill="#C2185B"/>
+      <path d="M60 78 L84 80 M60 86 L84 84 M140 78 L116 80 M140 86 L116 84" stroke="#1B2127" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30 92 L170 92 L162 146 L38 146 Z" fill="#C98B4E"/>
+      <path d="M30 92 L10 76 L72 76 L84 92 Z M170 92 L190 76 L128 76 L116 92 Z" fill="#B47A41"/>
+      <path d="M86 112 L86 132 L104 122 Z" fill="#FFFFFF" opacity=".9"/>
+      <ellipse cx="62" cy="94" rx="12" ry="8" fill="var(--cat)"/>
+      <ellipse cx="138" cy="94" rx="12" ry="8" fill="var(--cat)"/>
+    </svg>
+    <img class="poster" id="poster" alt="">
+    <div id="content"><p class="empty" id="loading">…</p></div>
+    <div class="actions" id="actions"></div>
+    <p class="hint" id="hint"></p>
+  </div>
+  <footer id="footer"></footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var PKG = "de.lindenhausapps.player";
+  var de = (navigator.language || "en").toLowerCase().indexOf("de") === 0;
+  if (de) document.documentElement.lang = "de";
+  var T = de ? {
+    tip: "Ein Pfotenabdruck für dich", from: "{0} schickt dir einen Pfotenabdruck",
+    watch: "Schau dir „{0}“ an!", live: "{0} läuft gerade – schalt ein!",
+    basket: "Ein Korb mit {0} Tipps", basketFrom: "{0} schickt dir einen Korb mit {1} Tipps",
+    purr: "{0} hat auf deinen Tipp „{1}“ reagiert", someone: "Jemand",
+    clip: "Ein Clip für dich", clipFrom: "{0} schickt dir einen Clip", watchClip: "▶ Clip ansehen",
+    spoiler: "🙈 Spoiler – zum Lesen tippen", open: "In Lindenhaus Player öffnen", get: "Bei Google Play holen",
+    android: "Mit der App findest du den Tipp direkt bei deinem eigenen TV-Anbieter. Gratis-TV funktioniert sofort, ganz ohne Login.",
+    other: "Lindenhaus Player gibt es für Android-Handys, Tablets, TV-Boxen und Chromebooks.",
+    broken: "Dieser Link ist unvollständig. Bitte lass ihn dir noch einmal schicken.",
+    old: "Dein Browser ist zu alt, um diesen Pfotenabdruck zu lesen. Öffne den Link am besten direkt in der App.",
+    footer: "Diese Seite speichert nichts und sendet deinen Tipp nirgendwohin. Das Bild kommt von Wikipedia."
+  } : {
+    tip: "A pawprint for you", from: "{0} sent you a pawprint",
+    watch: "Watch “{0}”!", live: "{0} is on right now – tune in!",
+    basket: "A basket of {0} tips", basketFrom: "{0} sent you a basket of {1} tips",
+    purr: "{0} reacted to your tip “{1}”", someone: "A friend",
+    clip: "A clip for you", clipFrom: "{0} sent you a clip", watchClip: "▶ Watch the clip",
+    spoiler: "🙈 Spoiler – tap to read", open: "Open in Lindenhaus Player", get: "Get it on Google Play",
+    android: "The app finds this tip at your own TV provider. Free TV works right away, no login needed.",
+    other: "Lindenhaus Player is available for Android phones, tablets, TV boxes and Chromebooks.",
+    broken: "This link is incomplete. Please ask your friend to send it again.",
+    old: "Your browser is too old to read this pawprint. Best open the link directly in the app.",
+    footer: "This page stores nothing and sends your tip nowhere. The picture comes from Wikipedia."
+  };
+  var EMOJI = { love: "😻", funny: "😹", wow: "🙀", meh: "😾" };
+  function f(s) { var a = arguments; return s.replace(/\{(\d)\}/g, function (_, i) { return a[+i + 1]; }); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  var code = (location.hash || "").replace(/^#/, "");
+  var content = document.getElementById("content");
+  var actions = document.getElementById("actions");
+  document.getElementById("footer").textContent = T.footer;
+
+  function playUrl() {
+    var ref = code && code.length < 1500 ? "&referrer=" + encodeURIComponent("paw=" + encodeURIComponent(code)) : "";
+    return "https://play.google.com/store/apps/details?id=" + PKG + ref;
+  }
+  function buttons() {
+    var android = /android/i.test(navigator.userAgent);
+    if (android && code) {
+      var a = el("a", "btn primary", T.open);
+      a.href = "intent://paw?d=" + encodeURIComponent(code) + "#Intent;scheme=lindenhaus;package=" + PKG +
+        ";S.browser_fallback_url=" + encodeURIComponent(playUrl()) + ";end";
+      actions.appendChild(a);
+    }
+    var g = el("a", "btn" + (android && code ? "" : " primary"), T.get);
+    g.href = playUrl(); g.rel = "noopener";
+    actions.appendChild(g);
+    document.getElementById("hint").textContent = android ? T.android : T.other;
+  }
+
+  function show(p) {
+    content.textContent = "";
+    var title = String(p.n || "").slice(0, 120), from = p.f ? String(p.f).slice(0, 40) : null;
+    var year = /^\d{4}$/.test(p.y || "") ? p.y : null;
+    var head;
+    if (p.t === "live") head = (from ? f(T.from, from) + " · " : "") + f(T.live, title);
+    else if (p.t === "list") head = from ? f(T.basketFrom, from, (p.l || []).length) : f(T.basket, (p.l || []).length);
+    else if (p.t === "clip") head = from ? f(T.clipFrom, from) : T.clip
+    else if (p.t === "purr") head = (EMOJI[p.r] || "🐾") + " " + f(T.purr, from || T.someone, title);
+    else head = (from ? f(T.from, from) : T.tip) + ": " + f(T.watch, title + (year ? " (" + year + ")" : ""));
+    content.appendChild(el("h1", null, head));
+    if (p.m) {
+      var note = el("p", "note", "“" + String(p.m).slice(0, 280) + "”");
+      if (p.s === 1 || p.s === "1") {
+        var b = el("button", "spoiler", T.spoiler);
+        b.onclick = function () { b.replaceWith(note); };
+        content.appendChild(b);
+      } else content.appendChild(note);
+    }
+    if (p.t === "list" && Array.isArray(p.l)) {
+      var ul = el("ul", "list");
+      p.l.slice(0, 50).forEach(function (it) {
+        ul.appendChild(el("li", null, String(it.n || "").slice(0, 120) + (/^\d{4}$/.test(it.y || "") ? " (" + it.y + ")" : "")));
+      });
+      content.appendChild(ul);
+    }
+    if (p.t === "clip" && typeof p.c === "string") {
+      try {
+        var cu = new URL(p.c);
+        var ok = cu.protocol === "https:" && /^(www\.|m\.|vm\.|vt\.)?(tiktok\.com|youtube\.com|instagram\.com)$|^youtu\.be$|^bsky\.app$/.test(cu.hostname);
+        if (ok) { var a = el("a", "btn primary", T.watchClip); a.href = cu.href; a.rel = "noopener noreferrer"; a.style.marginTop = "12px"; content.appendChild(a); }
+      } catch (e) {}
+    }
+    if (p.d) {
+      try { content.appendChild(el("p", "meta", new Date(p.d * 1000).toLocaleDateString(de ? "de-DE" : undefined, { day: "numeric", month: "long", year: "numeric" }))); } catch (e) {}
+    }
+    if ((p.t === "movie" || p.t === "series") && title) poster(title, year, p.t);
+  }
+
+  function poster(title, year, type) {
+    var lang = de ? "de" : "en";
+    var hint = type === "series" ? (de ? "Fernsehserie" : "TV series") : (de ? "Film" : "film");
+    var q = encodeURIComponent(title + (year ? " " + year : "") + " " + hint);
+    fetch("https://" + lang + ".wikipedia.org/w/api.php?action=query&list=search&format=json&srlimit=1&origin=*&srsearch=" + q, { referrerPolicy: "no-referrer" })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        var t = j && j.query && j.query.search && j.query.search[0] && j.query.search[0].title;
+        if (!t) return null;
+        return fetch("https://" + lang + ".wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(t.replace(/ /g, "_")), { referrerPolicy: "no-referrer" }).then(function (r) { return r.json(); });
+      })
+      .then(function (s) {
+        var src = s && s.thumbnail && s.thumbnail.source;
+        if (src && /^https:\/\/upload\.wikimedia\.org\//.test(src)) {
+          var img = document.getElementById("poster");
+          img.src = src; img.alt = title;
+          img.onload = function () { img.className = "poster on"; };
+        }
+      })
+      .catch(function () {});
+  }
+
+  function decode(c) {
+    if (!c || c.charAt(0) !== "1" || c.length > 12000) return Promise.reject(new Error("bad"));
+    if (typeof DecompressionStream === "undefined") return Promise.reject(new Error("old"));
+    var b64 = c.slice(1).replace(/-/g, "+").replace(/_/g, "/");
+    while (b64.length % 4) b64 += "=";
+    var bin = atob(b64), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+    return new Response(stream).text().then(function (t) {
+      if (t.length > 65536) throw new Error("bad");
+      return JSON.parse(t);
+    });
+  }
+
+  buttons();
+  decode(code).then(function (p) {
+    if (!p || typeof p !== "object" || ["movie", "series", "live", "list", "purr", "clip"].indexOf(p.t) < 0) throw new Error("bad");
+    show(p);
+  }).catch(function (e) {
+    content.textContent = "";
+    content.appendChild(el("p", "empty", e && e.message === "old" ? T.old : T.broken));
+  });
+})();
+</script>
+</body>
+</html>
