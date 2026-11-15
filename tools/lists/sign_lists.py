@@ -89,7 +89,7 @@ def main(folder):
         print("::error::LIST_SIGNING_KEY is not a P-256 key (ssh-keygen -t ecdsa -b 256)")
         return 1
     point = key.public_key().public_bytes(serialization.Encoding.X962, serialization.PublicFormat.UncompressedPoint)
-    print("the shelf's public key (for the app, Shelf.PUBLIC_KEY): " + base64.b64encode(point).decode())
+    print("the shelf's public key (for the app, ListShelf.PUBLIC_KEY): " + base64.b64encode(point).decode())
     if before == files and os.path.exists(sig_path):
         print("no list changed – manifest and signature stay")
         return 0
