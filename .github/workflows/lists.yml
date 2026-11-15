@@ -1,0 +1,73 @@
+# 📚 The shelf for Lindenhaus Player (Nathan, 15 Nov 2026: "the app itself keeps it fresh and up to date … no server
+# from our side"): every day GitHub builds the app's lists from public sources – the cat's film list from Wikidata,
+# the classics from the Internet Archive, the free films and YouTube starter packs, a check of the free TV streams – and
+# signs them (tools/lists/sign_lists.py, the secret LIST_SIGNING_KEY). The apps fetch player/lists/ and take a list only
+# with the right signature. Nothing runs for anybody here and nothing about anybody comes here: it is a shelf of files.
+# Builds in this public project cost nothing.
+name: Lists
+
+on:
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+    inputs:
+      build:
+        description: "Build the lists anew (off: only settle and sign what is there)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lists
+  cancel-in-progress: false
+
+jobs:
+  lists:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: The cat's film list (Wikidata, CC0)
+        if: github.event_name != 'workflow_dispatch' || inputs.build
+        timeout-minutes: 45
+        continue-on-error: true
+        run: python3 tools/lists/make_cream.py player/lists/cream.bin || echo "::warning::the film list stays as it was"
+      - name: The classics (Internet Archive)
+        if: github.event_name != 'workflow_dispatch' || inputs.build
+        timeout-minutes: 60
+        continue-on-error: true
+        run: python3 tools/lists/make_classics.py player/lists/classics.json || echo "::warning::the classics stay as they were"
+      - name: The free films and YouTube starter packs
+        if: github.event_name != 'workflow_dispatch' || inputs.build
+        timeout-minutes: 20
+        continue-on-error: true
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          if [ -n "$YOUTUBE_API_KEY" ]; then
+            python3 tools/lists/make_freefilms.py player/lists/freefilms.json player/lists/youtube.json || echo "::warning::the free films stay as they were"
+          else
+            echo "::notice::no YOUTUBE_API_KEY in this project – the free films stay as they are"
+          fi
+      - name: The free TV streams checked
+        if: github.event_name != 'workflow_dispatch' || inputs.build
+        timeout-minutes: 30
+        continue-on-error: true
+        run: python3 tools/lists/check_freetv.py player/lists/freetv.json || echo "::warning::the Free TV list stays as it was"
+      - name: Settled and signed
+        env:
+          LIST_SIGNING_KEY: ${{ secrets.LIST_SIGNING_KEY }}
+        run: |
+          pip install --quiet cryptography
+          python3 tools/lists/sign_lists.py player/lists
+      - name: On the shelf
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add player/lists
+          if git diff --cached --quiet; then echo "nothing new today"; exit 0; fi
+          git commit -q -m "Lists for Lindenhaus Player ($(date +%F))"
+          git pull -q --rebase origin main || git pull -q --rebase origin master
+          git push -q
