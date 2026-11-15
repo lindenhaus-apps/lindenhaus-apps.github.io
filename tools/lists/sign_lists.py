@@ -5,7 +5,8 @@ files. Lindenhaus Player takes a list from player/lists/ only when manifest.sig 
 matches the size and SHA-256 that manifest.json names (app: shared/.../data/Shelf.kt).
 
   1. Settle: a list whose content is the same as before apart from its "made" date gets its old bytes back – so a
-     quiet day sends the apps nothing new.
+     quiet day sends the apps nothing new. A new list that cannot be read, or is less than half the old one (a source
+     that answered only in part), is not taken either: the old one stays.
   2. manifest.json: every list's SHA-256 and size (written only when a list changed – an ECDSA signature differs on
      every signing, so an unchanged manifest keeps its old signature).
   3. manifest.sig: ECDSA P-256 / SHA-256 over manifest.json's bytes, base64 (DER), with the key in the secret
@@ -46,7 +47,18 @@ def main(folder):
             continue
         new = open(path, "rb").read()
         old = old_bytes(path)
-        if old is not None and old != new and content(name, old) is not None and content(name, old) == content(name, new):
+        if old is None or old == new:
+            continue
+        was, now = content(name, old), content(name, new)
+        if now is None:
+            # (a list the app could not read never reaches the apps)
+            open(path, "wb").write(old)
+            print(f"::warning::{name}: the new list cannot be read – kept the old one")
+        elif was is not None and len(now) < len(was) // 2:
+            # (a source that answered only half: the apps keep the full list)
+            open(path, "wb").write(old)
+            print(f"::warning::{name}: the new list is less than half the old one – kept the old one")
+        elif was == now:
             open(path, "wb").write(old)
             print(f"{name}: only its date changed – kept as it was")
     # 2. the list of files
