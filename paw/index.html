@@ -41,6 +41,7 @@
   .empty { text-align: center; color: var(--dim); }
   footer { color: var(--dim); font-size: .78rem; text-align: center; margin-top: 18px; }
   footer a { color: var(--dim); }
+  p.night { font-size: 1.15rem; font-weight: 600; margin: 6px 0 2px; }
 </style>
 </head>
 <body>
@@ -77,6 +78,7 @@
   if (de) document.documentElement.lang = "de";
   var T = de ? {
     tip: "Ein Pfotenabdruck für dich", from: "{0} schickt dir einen Pfotenabdruck",
+    ticket: "🎟 Eine Kinokarte für dich", ticketFrom: "🎟 {0} schenkt dir eine Kinokarte", night: "🍿 Filmabend: {0}", seat: "Reihe {0} · Platz {1}",
     watch: "Schau dir „{0}“ an!", live: "{0} läuft gerade – schalt ein!",
     basket: "Ein Korb mit {0} Tipps", basketFrom: "{0} schickt dir einen Korb mit {1} Tipps",
     purr: "{0} hat auf deinen Tipp „{1}“ reagiert", someone: "Jemand",
@@ -89,6 +91,7 @@
     footer: "Diese Seite speichert nichts und sendet deinen Tipp nirgendwohin. Das Bild kommt von Wikipedia."
   } : {
     tip: "A pawprint for you", from: "{0} sent you a pawprint",
+    ticket: "🎟 A cinema ticket for you", ticketFrom: "🎟 {0} gives you a cinema ticket", night: "🍿 Film night: {0}", seat: "Row {0} · Seat {1}",
     watch: "Watch “{0}”!", live: "{0} is on right now – tune in!",
     basket: "A basket of {0} tips", basketFrom: "{0} sent you a basket of {1} tips",
     purr: "{0} reacted to your tip “{1}”", someone: "A friend",
@@ -137,7 +140,19 @@
     else if (p.t === "clip") head = from ? f(T.clipFrom, from) : T.clip
     else if (p.t === "purr") head = (EMOJI[p.r] || "🐾") + " " + f(T.purr, from || T.someone, title);
     else head = (from ? f(T.from, from) : T.tip) + ": " + f(T.watch, title + (year ? " (" + year + ")" : ""));
+    // 🎟 a paper ticket's code: the ticket, the film night and the seat (facts "tk" and "night", the app's Meow.kt)
+    var x = (p.x && typeof p.x === "object") ? p.x : {};
+    var tk = /^\d{1,2}-\d{1,2}$/.test(String(x.tk || "")) ? String(x.tk).split("-") : null;
+    if (tk) head = (from ? f(T.ticketFrom, from) : T.ticket) + ": „" + title + (year ? " (" + year + ")" : "") + "“";
     content.appendChild(el("h1", null, head));
+    var nightMin = /^\d{1,9}$/.test(String(x.night || "")) ? +x.night : 0;
+    if (nightMin > 0) {
+      try {
+        var when = new Date(nightMin * 60000).toLocaleString(de ? "de-DE" : undefined, { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+        content.appendChild(el("p", "night", f(T.night, when)));
+      } catch (e) {}
+    }
+    if (tk) content.appendChild(el("p", "meta", f(T.seat, tk[0], tk[1])));
     if (p.m) {
       var note = el("p", "note", "“" + String(p.m).slice(0, 280) + "”");
       if (p.s === 1 || p.s === "1") {
