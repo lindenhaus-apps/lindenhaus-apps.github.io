@@ -1,17 +1,17 @@
 {
- "built": "2026-11-20T12:58:37Z",
+ "built": "2026-11-21T11:53:40Z",
  "files": {
   "catnip.json": {
    "bytes": 249,
    "sha256": "3f9248bdda402e7cd6f34fde1f2b4294eccec7fdb4250cb65ded204b32ecf2ae"
   },
   "classics.json": {
-   "bytes": 90548,
-   "sha256": "2653dafb117526a3ab4a3a0e8d64a81743d3732fe12f9d7b8dbd6380aff5b018"
+   "bytes": 90536,
+   "sha256": "3269c2f93a0e8efd75fb6858513f164db0034a35b735037ffd9a5a7d539ceb5d"
   },
   "cream.bin": {
-   "bytes": 433558,
-   "sha256": "468372c0f624b9b3a7567468f48a103d170410e86ba11a892fafeb7da663a56c"
+   "bytes": 458385,
+   "sha256": "10d0086281c4df8785799ffcf5ed90f528d4b61ce8c62ef420053f748356410b"
   },
   "freefilms.json": {
    "bytes": 417309,
@@ -19,7 +19,7 @@
   },
   "freetv.json": {
    "bytes": 37623,
-   "sha256": "977f4a56655226456abaf86dd8a9a904bc209edaaeaf33cfe3514baae6b6490a"
+   "sha256": "9132be12d17af687a5409c5ebb40fd22571245acfdc64ab5fbc123606b2fe5d9"
   },
   "services.json": {
    "bytes": 44049,
