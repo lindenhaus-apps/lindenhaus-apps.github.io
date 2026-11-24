@@ -18,8 +18,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.zdf",
@@ -36,7 +36,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.3sat",
@@ -53,7 +53,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.ardalpha",
@@ -70,8 +70,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.arte",
@@ -88,7 +88,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.one",
@@ -105,7 +105,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.phoenix",
@@ -122,7 +122,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.tagesschau24",
@@ -139,8 +139,8 @@
    "geo": null,
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.zdfinfo",
@@ -157,7 +157,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.zdfneo",
@@ -174,7 +174,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.ndrinternational",
@@ -191,8 +191,8 @@
    "geo": null,
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "at.orfiii",
@@ -209,8 +209,8 @@
    "geo": "AT",
    "source": "Free-TV/IPTV (austria)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "at.servustv",
@@ -226,7 +226,7 @@
    "geo": "AT",
    "source": "Free-TV/IPTV (austria)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "at.oe24",
@@ -242,8 +242,8 @@
    "geo": null,
    "source": "Free-TV/IPTV (austria)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.welt",
@@ -274,8 +274,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.brsd",
@@ -292,8 +292,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.hr",
@@ -310,8 +310,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.mdrsachsen",
@@ -328,7 +328,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.mdrsachsenanhalt",
@@ -345,7 +345,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.mdrthringen",
@@ -362,7 +362,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.ndrhamburg",
@@ -379,8 +379,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.ndrmecklenburgvorpommern",
@@ -397,8 +397,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.ndrniedersachsen",
@@ -415,8 +415,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.ndrschleswigholstein",
@@ -433,8 +433,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.radiobremen",
@@ -451,7 +451,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.rbbberlin",
@@ -468,7 +468,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.rbbbrandenburg",
@@ -485,7 +485,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.sr",
@@ -502,8 +502,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.swrbadenwrttemberg",
@@ -520,7 +520,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.swrrheinlandpfalz",
@@ -537,7 +537,7 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.wdr",
@@ -554,8 +554,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "at.w24",
@@ -570,7 +570,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (austria)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "at.rtv",
@@ -585,7 +585,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (austria)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "at.r9",
@@ -600,7 +600,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (austria)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "de.kika",
@@ -617,8 +617,8 @@
    "geo": "DE",
    "source": "Free-TV/IPTV (germany)",
    "confidence": "high",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "de.deluxemusic",
@@ -633,7 +633,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (germany)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "de.deluxemusicdancebykontor",
@@ -648,7 +648,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (germany)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "de.deluxemusicrap",
@@ -663,7 +663,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (germany)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "uk.bbcone",
@@ -680,7 +680,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.bbctwo",
@@ -697,7 +697,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.stv",
@@ -713,7 +713,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.s4c",
@@ -729,7 +729,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.bbcalba",
@@ -746,7 +746,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.bbcfour",
@@ -763,7 +763,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.bbcscotland",
@@ -780,7 +780,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.bbcthree",
@@ -797,7 +797,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "int.bbcnews",
@@ -814,8 +814,8 @@
    "geo": null,
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "ok": "2026-11-23",
-   "liveOk": "2026-11-23"
+   "ok": "2026-11-24",
+   "liveOk": "2026-11-24"
   },
   {
    "id": "int.dw",
@@ -830,7 +830,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (news_en)",
    "confidence": "high",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "int.aljazeera",
@@ -845,7 +845,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (news_en)",
    "confidence": "high",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "uk.bbcparliament",
@@ -862,7 +862,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.skynews",
@@ -891,7 +891,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "uk.bloombergtveurope",
@@ -906,7 +906,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "uk.skynewsweather",
@@ -921,7 +921,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (news_en)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "us.bloombergtvus",
@@ -936,7 +936,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (usa)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "us.cbsnews",
@@ -950,7 +950,8 @@
    "epgId": "CBSNews.us",
    "geo": null,
    "source": "Free-TV/IPTV (usa)",
-   "confidence": "medium"
+   "confidence": "medium",
+   "failed": "2026-11-24"
   },
   {
    "id": "us.newsmaxtv",
@@ -965,7 +966,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (usa)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "us.scrippsnews",
@@ -980,7 +981,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (news_en)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "us.foxweather",
@@ -995,7 +996,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (news_en)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "ie.housesoftheoireachtaschannel",
@@ -1024,7 +1025,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (news_en)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "ca.globalnews",
@@ -1039,7 +1040,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (news_en)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "int.nhkworldjapan",
@@ -1068,7 +1069,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "uk.cbbc",
@@ -1085,7 +1086,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.cbeebies",
@@ -1102,7 +1103,7 @@
    "geo": "UK",
    "source": "Free-TV/IPTV (uk)",
    "confidence": "medium",
-   "liveOk": "2026-11-23"
+   "liveOk": "2026-11-24"
   },
   {
    "id": "uk.blaze",
@@ -1131,7 +1132,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (usa)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "us.heartland",
@@ -1146,7 +1147,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (usa)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "us.revn",
@@ -1161,7 +1162,7 @@
    "geo": null,
    "source": "Free-TV/IPTV (usa)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   },
   {
    "id": "us.courttv",
@@ -1176,8 +1177,8 @@
    "geo": null,
    "source": "Free-TV/IPTV (usa)",
    "confidence": "medium",
-   "ok": "2026-11-23"
+   "ok": "2026-11-24"
   }
  ],
- "checked": "2026-11-23"
+ "checked": "2026-11-24"
 }
